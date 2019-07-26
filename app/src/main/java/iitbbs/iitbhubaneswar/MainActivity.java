@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity
         StrictMode.setVmPolicy(builder.build());
 
         setContentView(R.layout.new_home);
-        Toolbar toolbar = (Toolbar) findViewById(iitbbs.iitbhubaneswar.R.id.toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(iitbbs.iitbhubaneswar.R.id.toolbar);
 
 
 //        DrawerLayout drawer = (DrawerLayout) findViewById(iitbbs.iitbhubaneswar.R.id.drawer_layout);
@@ -122,6 +122,28 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void openGymkhana(View v){
+        setTitle("Students' Gymkhana Office");
+        setNavFragment(iitbbs.iitbhubaneswar.R.layout.gymkhana);
+    }
+    public void openERP(View v){
+        Fragment erp_frag = new Erp();
+        if (erp_frag != null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(iitbbs.iitbhubaneswar.R.id.content_frame, erp_frag);
+            ft.commit();
+        }
+    }
+    public void openTransportation(View v){
+        setTitle("Transportation");
+        setNavFragment(iitbbs.iitbhubaneswar.R.layout.transport);
+    }
+
+
+
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

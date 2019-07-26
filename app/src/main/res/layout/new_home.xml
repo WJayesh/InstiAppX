@@ -125,11 +125,12 @@
                     android:elevation="2dp"
 
                     >
+                    <!-- TODO add onClick-->
                     <TextView
-                        android:onClick="openMap"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Map"
+                        android:text="News"
                         android:layout_margin="24dp"/>
                 </androidx.cardview.widget.CardView>
 
@@ -146,7 +147,7 @@
                         android:layout_width="0dp"
                         android:layout_height="200dp"
                         android:layout_marginStart="24dp"
-
+                        android:onClick="openERP"
                         android:layout_marginTop="24dp"
                         android:id="@+id/eat"
                         android:background="#cddc39"
@@ -156,7 +157,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="PLACES to Eat"
+                            android:text="ERP"
                             android:layout_margin="24dp"/>
                     </androidx.cardview.widget.CardView>
 
@@ -167,11 +168,12 @@
                         android:layout_weight="1"
                         android:id="@+id/gym"
                         android:background="#00bfa5"
+                        android:onClick="openGymkhana"
                         >
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="GYMKHANA MAYBE"
+                            android:text="GYMKHANA"
                             android:layout_margin="24dp"/>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
@@ -184,16 +186,17 @@
                         android:layout_height="200dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginEnd="24dp"
-
+                        android:onClick="openTransportation"
                         android:background="#ffd600"
                         >
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Gallery"
+                            android:text="Transportation"
                             android:layout_margin="24dp"/>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
+                <!--TODO Cards for Gallery, News and Places To Eat  -->
 
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
