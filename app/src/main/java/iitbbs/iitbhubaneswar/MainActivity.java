@@ -1,28 +1,28 @@
 package iitbbs.iitbhubaneswar;
 
+;
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
-import android.support.design.internal.NavigationMenu;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+
+import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity
@@ -39,18 +39,24 @@ public class MainActivity extends AppCompatActivity
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-        setContentView(iitbbs.iitbhubaneswar.R.layout.activity_main);
+        setContentView(R.layout.new_home);
         Toolbar toolbar = (Toolbar) findViewById(iitbbs.iitbhubaneswar.R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(iitbbs.iitbhubaneswar.R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, iitbbs.iitbhubaneswar.R.string.navigation_drawer_open, iitbbs.iitbhubaneswar.R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(iitbbs.iitbhubaneswar.R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+//        DrawerLayout drawer = (DrawerLayout) findViewById(iitbbs.iitbhubaneswar.R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, iitbbs.iitbhubaneswar.R.string.navigation_drawer_open, iitbbs.iitbhubaneswar.R.string.navigation_drawer_close);
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
+
+//        NavigationView navigationView = (NavigationView) findViewById(iitbbs.iitbhubaneswar.R.id.nav_view);
+//        navigationView.setNavigationItemSelectedListener(this);
+
+
+        BottomAppBar bottomBar =  findViewById(R.id.bar);
+        bottomBar.setElevation(4);
+        setSupportActionBar(bottomBar);
+
 
         progressBar = (ProgressBar) findViewById(iitbbs.iitbhubaneswar.R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
@@ -74,8 +80,8 @@ public class MainActivity extends AppCompatActivity
                 Snackbar snackbar = Snackbar.make( drawer,"Please press BACK again to exit", Snackbar.LENGTH_SHORT );
                 snackbar.show();
                 View snackview = snackbar.getView();
-                TextView textView = snackview.findViewById(android.support.design.R.id.snackbar_text);
-                textView.setTextColor(Color.rgb( 255,255,255 ) );
+                //TextView textView = snackview.findViewById(android.support.design.R.id.snackbar_text);
+                //textView.setTextColor(Color.rgb( 255,255,255 ) );
                 new Handler().postDelayed( new Runnable() {
                     @Override
                     public void run() {
@@ -90,11 +96,11 @@ public class MainActivity extends AppCompatActivity
             jumpToHome();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(iitbbs.iitbhubaneswar.R.menu.main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(iitbbs.iitbhubaneswar.R.menu.main, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -104,9 +110,13 @@ public class MainActivity extends AppCompatActivity
 //            case R.id.action_settings:
 //                setNavFragment(R.layout.settings);
 //                break;
-            case iitbbs.iitbhubaneswar.R.id.action_about:
-                setTitle("About");
-                setNavFragment(iitbbs.iitbhubaneswar.R.layout.about);
+//            case iitbbs.iitbhubaneswar.R.id.action_about:
+//                setTitle("About");
+//                setNavFragment(iitbbs.iitbhubaneswar.R.layout.about);
+//                break;
+            case android.R.id.home:
+                OptionsListDialogFragment bottom_frag = new OptionsListDialogFragment();
+                bottom_frag.show(getSupportFragmentManager(), "dialog");
                 break;
         }
 
@@ -341,10 +351,10 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        NavFragment navFragment = new NavFragment();
-        navFragment.setNewLayout(navLayout);
+        NavFragment navFragmentOrig = new NavFragment();
+        navFragmentOrig.setNewLayout(navLayout);
 
-        fragmentTransaction.replace(iitbbs.iitbhubaneswar.R.id.content_frame, navFragment);
+        fragmentTransaction.replace(iitbbs.iitbhubaneswar.R.id.content_frame, navFragmentOrig);
         fragmentTransaction.commit();
     }
 }

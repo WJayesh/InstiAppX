@@ -17,7 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AlertDialog;
-import android.app.Fragment;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
@@ -51,7 +51,7 @@ import java.util.List;
 
 import static androidx.core.content.ContextCompat.checkSelfPermission;
 
-public class NavFragment extends Fragment {
+public class NavFragmentOrig extends Fragment {
 
     private int navLayout;
     private MapView mapView = null;

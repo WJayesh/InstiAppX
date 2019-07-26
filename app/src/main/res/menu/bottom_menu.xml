@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+    <item
+        android:id="@+id/nav_map"
+        android:icon="@drawable/icon_map"
+        android:title="Campus Map" />
+    <item android:title="Institute">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_timetable"
+                    android:icon="@drawable/icon_time_table"
+                    android:title="Time Table" />
+
+                <item
+                    android:id="@+id/nav_calendar"
+                    android:icon="@drawable/icon_calendar"
+                    android:title="Calendar" />
+
+                <item
+                    android:id="@+id/nav_holidays"
+                    android:icon="@drawable/icon_holidays"
+                    android:title="Public Holidays" />
+
+                <item
+                    android:id="@+id/nav_regulations"
+                    android:icon="@drawable/icon_regulations"
+                    android:title="Regulations" />
+                <item
+                    android:id="@+id/nav_messMenu"
+                    android:icon="@drawable/icon_mess_menu"
+                    android:title="Mess Menu" />
+            </group>
+        </menu>
+    </item>
+    </group>
+
+</menu>
