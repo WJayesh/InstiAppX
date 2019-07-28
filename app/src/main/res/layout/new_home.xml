@@ -84,25 +84,25 @@
                     android:layout_margin="16dp"/>
 
             </androidx.appcompat.widget.Toolbar>
-            <androidx.core.widget.ContentLoadingProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="15dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="-9dp"
-                android:layout_marginBottom="-8dp"
-                android:background="@color/colorPrimary"
-                android:backgroundTint="@color/colorPrimary"
-                android:foregroundGravity="center"
-                android:foregroundTint="@android:color/white"
-                android:indeterminate="true"
-                android:indeterminateTint="@android:color/white"
-                android:progress="20"
-                android:progressBackgroundTint="@android:color/white"
-                android:progressTint="@android:color/white"
-                android:secondaryProgressTint="@android:color/white"
-                android:visibility="visible" />
+            <!--<androidx.core.widget.ContentLoadingProgressBar-->
+                <!--android:id="@+id/progressBar"-->
+                <!--style="?android:attr/progressBarStyleHorizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="15dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginTop="-9dp"-->
+                <!--android:layout_marginBottom="-8dp"-->
+                <!--android:background="@color/colorPrimary"-->
+                <!--android:backgroundTint="@color/colorPrimary"-->
+                <!--android:foregroundGravity="center"-->
+                <!--android:foregroundTint="@android:color/white"-->
+                <!--android:indeterminate="true"-->
+                <!--android:indeterminateTint="@android:color/white"-->
+                <!--android:progress="20"-->
+                <!--android:progressBackgroundTint="@android:color/white"-->
+                <!--android:progressTint="@android:color/white"-->
+                <!--android:secondaryProgressTint="@android:color/white"-->
+                <!--android:visibility="visible" />-->
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView

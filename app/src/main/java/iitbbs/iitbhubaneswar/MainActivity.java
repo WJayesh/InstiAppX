@@ -8,20 +8,17 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.StrictMode;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
+
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ProgressBar;
 
 
@@ -39,7 +36,7 @@ public class MainActivity extends AppCompatActivity
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-        setContentView(R.layout.content_main);
+        setContentView(R.layout.new_home);
 //        Toolbar toolbar = (Toolbar) findViewById(iitbbs.iitbhubaneswar.R.id.toolbar);
 
 
@@ -52,12 +49,13 @@ public class MainActivity extends AppCompatActivity
 //        NavigationView navigationView = (NavigationView) findViewById(iitbbs.iitbhubaneswar.R.id.nav_view);
 //        navigationView.setNavigationItemSelectedListener(this);
 
+        BottomAppBar bottomBar =  findViewById(R.id.bar);
+        bottomBar.setElevation(4);
+        setSupportActionBar(bottomBar);
 
 
-
-
-        progressBar = (ProgressBar) findViewById(iitbbs.iitbhubaneswar.R.id.progressBar);
-        progressBar.setVisibility(View.INVISIBLE);
+//        progressBar = (ProgressBar) findViewById(iitbbs.iitbhubaneswar.R.id.progressBar);
+//        progressBar.setVisibility(View.INVISIBLE);
 
         jumpToHome();
     }
@@ -106,11 +104,11 @@ public class MainActivity extends AppCompatActivity
 
         switch (id) {
 //            case R.id.action_settings:
-//                setNavFragment(R.layout.settings);
+//                setScreen(R.layout.settings);
 //                break;
 //            case iitbbs.iitbhubaneswar.R.id.action_about:
 //                setTitle("About");
-//                setNavFragment(iitbbs.iitbhubaneswar.R.layout.about);
+//                setScreen(iitbbs.iitbhubaneswar.R.layout.about);
 //                break;
             case android.R.id.home:
                 OptionsListDialogFragment bottom_frag = new OptionsListDialogFragment();
@@ -123,20 +121,22 @@ public class MainActivity extends AppCompatActivity
 
     public void openGymkhana(View v){
         setTitle("Students' Gymkhana Office");
-        setNavFragment(iitbbs.iitbhubaneswar.R.layout.gymkhana);
+        setScreen(iitbbs.iitbhubaneswar.R.layout.gymkhana);
     }
     public void openERP(View v){
         Fragment erp_frag = new Erp();
         if (erp_frag != null) {
+//            NavFragment navFragment = new NavFragment();
+//            navFragment.setNewLayout(R.id.erp_webview);
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction ft = fragmentManager.beginTransaction();
-            ft.replace(iitbbs.iitbhubaneswar.R.id.content_frame, erp_frag);
+            ft.add(android.R.id.content, erp_frag);
             ft.commit();
         }
     }
     public void openTransportation(View v){
         setTitle("Transportation");
-        setNavFragment(iitbbs.iitbhubaneswar.R.layout.transport);
+        setScreen(iitbbs.iitbhubaneswar.R.layout.transport);
     }
 
 
@@ -151,35 +151,35 @@ public class MainActivity extends AppCompatActivity
         switch (id) {
             case iitbbs.iitbhubaneswar.R.id.nav_map:
                 setTitle("Campus Map");
-                setNavFragment(iitbbs.iitbhubaneswar.R.layout.map);
+                setScreen(iitbbs.iitbhubaneswar.R.layout.map);
                 break;
             case iitbbs.iitbhubaneswar.R.id.nav_gymkhana:
                 setTitle("Students' Gymkhana Office");
-                setNavFragment(iitbbs.iitbhubaneswar.R.layout.gymkhana);
+                setScreen(iitbbs.iitbhubaneswar.R.layout.gymkhana);
                 break;
             case iitbbs.iitbhubaneswar.R.id.nav_timetable:
                 setTitle("Academic Time Table");
-                setNavFragment(iitbbs.iitbhubaneswar.R.layout.timetable);
+                setScreen(iitbbs.iitbhubaneswar.R.layout.timetable);
                 break;
             case iitbbs.iitbhubaneswar.R.id.nav_calendar:
                 setTitle("Academic Calendar");
-                setNavFragment(iitbbs.iitbhubaneswar.R.layout.calendar);
+                setScreen(iitbbs.iitbhubaneswar.R.layout.calendar);
                 break;
             case iitbbs.iitbhubaneswar.R.id.nav_messMenu:
                 setTitle("Mess Menu");
-                setNavFragment(iitbbs.iitbhubaneswar.R.layout.mess_menu);
+                setScreen(iitbbs.iitbhubaneswar.R.layout.mess_menu);
                 break;
             case iitbbs.iitbhubaneswar.R.id.nav_transport:
                 setTitle("Transportation");
-                setNavFragment(iitbbs.iitbhubaneswar.R.layout.transport);
+                setScreen(iitbbs.iitbhubaneswar.R.layout.transport);
                 break;
             case iitbbs.iitbhubaneswar.R.id.nav_holidays:
                 setTitle("Public Holidays");
-                setNavFragment(iitbbs.iitbhubaneswar.R.layout.holiday_list);
+                setScreen(iitbbs.iitbhubaneswar.R.layout.holiday_list);
                 break;
             case iitbbs.iitbhubaneswar.R.id.nav_regulations:
                 setTitle("Regulations");
-                setNavFragment(iitbbs.iitbhubaneswar.R.layout.regulations);
+                setScreen(iitbbs.iitbhubaneswar.R.layout.regulations);
                 break;
             case iitbbs.iitbhubaneswar.R.id.nav_erp:
                 Fragment erp_frag = new Erp();
@@ -214,8 +214,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void jumpToHome() {
-        setTitle("Campus Map");
-        setNavFragment(R.layout.new_home);
+        setTitle("Home");
+        setScreen(R.layout.new_home);
     }
 
     /**
@@ -367,14 +367,15 @@ public class MainActivity extends AppCompatActivity
      *
      * @param navLayout
      */
-    private void setNavFragment(int navLayout) {
+    private void setScreen(int navLayout) {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         NavFragment navFragmentOrig = new NavFragment();
         navFragmentOrig.setNewLayout(navLayout);
 
-        fragmentTransaction.replace(iitbbs.iitbhubaneswar.R.id.content_frame, navFragmentOrig);
+        fragmentTransaction.add(android.R.id.content, navFragmentOrig, "Fragment");
         fragmentTransaction.commit();
+
     }
 }
