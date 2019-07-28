@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-        setContentView(R.layout.new_home);
+        setContentView(R.layout.content_main);
 //        Toolbar toolbar = (Toolbar) findViewById(iitbbs.iitbhubaneswar.R.id.toolbar);
 
 
@@ -53,46 +53,44 @@ public class MainActivity extends AppCompatActivity
 //        navigationView.setNavigationItemSelectedListener(this);
 
 
-        BottomAppBar bottomBar =  findViewById(R.id.bar);
-        bottomBar.setElevation(4);
-        setSupportActionBar(bottomBar);
+
 
 
         progressBar = (ProgressBar) findViewById(iitbbs.iitbhubaneswar.R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
 
-//        jumpToHome();
+        jumpToHome();
     }
 
     @Override
     public void onBackPressed() {
-        WebView webView = (WebView) this.findViewById( iitbbs.iitbhubaneswar.R.id.erp_webview );
-        DrawerLayout drawer = (DrawerLayout) findViewById(iitbbs.iitbhubaneswar.R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        }
-
-        else if(findViewById(iitbbs.iitbhubaneswar.R.id.map_layout) != null)  {
-            if(doublepress)
-                super.onBackPressed();
-            else{
-                this.doublepress=true;
-                Snackbar snackbar = Snackbar.make( drawer,"Please press BACK again to exit", Snackbar.LENGTH_SHORT );
-                snackbar.show();
-                View snackview = snackbar.getView();
-                //TextView textView = snackview.findViewById(android.support.design.R.id.snackbar_text);
-                //textView.setTextColor(Color.rgb( 255,255,255 ) );
-                new Handler().postDelayed( new Runnable() {
-                    @Override
-                    public void run() {
-                        doublepress=false;
-                    }
-                },2000 );
-            }}
-        else if(findViewById( iitbbs.iitbhubaneswar.R.id.erp_webview  )!=null&&webView.canGoBack()) {
-            webView.goBack();
-        }
-        else
+//        WebView webView = (WebView) this.findViewById( iitbbs.iitbhubaneswar.R.id.erp_webview );
+//        DrawerLayout drawer = (DrawerLayout) findViewById(iitbbs.iitbhubaneswar.R.id.drawer_layout);
+//        if (drawer.isDrawerOpen(GravityCompat.START)) {
+//            drawer.closeDrawer(GravityCompat.START);
+//        }
+//
+//        else if(findViewById(iitbbs.iitbhubaneswar.R.id.map_layout) != null)  {
+//            if(doublepress)
+//                super.onBackPressed();
+//            else{
+//                this.doublepress=true;
+//                Snackbar snackbar = Snackbar.make( drawer,"Please press BACK again to exit", Snackbar.LENGTH_SHORT );
+//                snackbar.show();
+//                View snackview = snackbar.getView();
+//                //TextView textView = snackview.findViewById(android.support.design.R.id.snackbar_text);
+//                //textView.setTextColor(Color.rgb( 255,255,255 ) );
+//                new Handler().postDelayed( new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        doublepress=false;
+//                    }
+//                },2000 );
+//            }}
+//        else if(findViewById( iitbbs.iitbhubaneswar.R.id.erp_webview  )!=null&&webView.canGoBack()) {
+//            webView.goBack();
+//        }
+//        else
             jumpToHome();
     }
 
@@ -217,7 +215,7 @@ public class MainActivity extends AppCompatActivity
 
     private void jumpToHome() {
         setTitle("Campus Map");
-        setNavFragment(iitbbs.iitbhubaneswar.R.layout.map);
+        setNavFragment(R.layout.new_home);
     }
 
     /**

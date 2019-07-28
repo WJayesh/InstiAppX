@@ -13,6 +13,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import androidx.annotation.NonNull;
+
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -69,6 +71,12 @@ public class NavFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = layoutInflater.inflate(navLayout, container, false);
+
+        if(navLayout == R.layout.new_home) {
+            BottomAppBar bottomBar =  rootView.findViewById(R.id.bar);
+            bottomBar.setElevation(4);
+//            setSupportActionBar(bottomBar);
+        }
 
         if (navLayout == iitbbs.iitbhubaneswar.R.layout.gymkhana) {
             FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
