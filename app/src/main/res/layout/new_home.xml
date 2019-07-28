@@ -104,6 +104,10 @@
                 android:secondaryProgressTint="@android:color/white"
                 android:visibility="visible" />
         </com.google.android.material.appbar.AppBarLayout>
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -200,6 +204,7 @@
 
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
+        </FrameLayout>
 
 
 

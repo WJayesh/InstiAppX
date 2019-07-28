@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity
         progressBar = (ProgressBar) findViewById(iitbbs.iitbhubaneswar.R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
 
-        jumpToHome();
+//        jumpToHome();
     }
 
     @Override
