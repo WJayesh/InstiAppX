@@ -20,11 +20,10 @@
             android:layout_gravity="bottom"
             app:backgroundTint="@color/colorPrimary"
             app:fabAlignmentMode="center"
-
             app:hideOnScroll="true"
-
-            app:menu ="@menu/activity_main_drawer" />
-        <!--app:navigationIcon="@drawable/round_menu_black_18dp"-->
+            app:elevation="8dp"
+            app:navigationIcon="@drawable/round_menu_black_18dp"
+            />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -60,7 +59,7 @@
 
 
         <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
             app:liftOnScroll="true">
@@ -119,16 +118,14 @@
                     android:layout_width="0dp"
                     android:layout_height="200dp"
                     android:layout_marginStart="24dp"
-
                     android:layout_marginTop="24dp"
                     android:id="@+id/news"
-                    android:background="#cddc39"
-                    android:elevation="2dp"
+                    android:background="#ffffff"
+                    android:elevation="0dp"
 
                     >
                     <!-- TODO add onClick-->
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="News"
@@ -138,7 +135,6 @@
 
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -152,7 +148,7 @@
                         android:layout_marginTop="24dp"
                         android:id="@+id/eat"
                         android:background="#cddc39"
-                        android:elevation="2dp"
+                        android:elevation="0dp"
                         android:layout_weight="0.7"
                         >
                         <TextView
@@ -189,6 +185,7 @@
                         android:layout_marginEnd="24dp"
                         android:onClick="openTransportation"
                         android:background="#ffd600"
+
                         >
                         <TextView
                             android:layout_width="wrap_content"

@@ -17,6 +17,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -50,14 +51,28 @@ public class MainActivity extends AppCompatActivity
 //        navigationView.setNavigationItemSelectedListener(this);
 
         BottomAppBar bottomBar =  findViewById(R.id.bar);
-        bottomBar.setElevation(4);
+        bottomBar.setElevation(8);
         setSupportActionBar(bottomBar);
+        bottomBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OptionsListDialogFragment bottom_frag = new OptionsListDialogFragment();
+                bottom_frag.show(getSupportFragmentManager(), "dialog");
+            }
+        });
+
 
 
 //        progressBar = (ProgressBar) findViewById(iitbbs.iitbhubaneswar.R.id.progressBar);
 //        progressBar.setVisibility(View.INVISIBLE);
 
         jumpToHome();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.bottom_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -97,6 +112,7 @@ public class MainActivity extends AppCompatActivity
 //        getMenuInflater().inflate(iitbbs.iitbhubaneswar.R.menu.main, menu);
 //        return true;
 //    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
